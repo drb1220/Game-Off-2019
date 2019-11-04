@@ -9,6 +9,7 @@ public class DashToBall : MonoBehaviour
     public Transform ball;
     public float dashSpeed = 5;
     public float ticks;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
