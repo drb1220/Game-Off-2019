@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public int jumpMaxTicks = 20;
     [SerializeField] private LayerMask platformLayerMask;
     int jumpTicks = 0;
+    public Transform ball;
 
     bool jumping = false;
     Rigidbody2D rb;
@@ -59,6 +60,8 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpTicks = 0;
         }
+
+       
         
     }
     private bool IsGrounded()
