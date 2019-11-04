@@ -61,8 +61,6 @@ public class PlayerMovement : MonoBehaviour
             jumpTicks = 0;
         }
 
-       
-        
     }
     private bool IsGrounded()
     {
