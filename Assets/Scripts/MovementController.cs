@@ -10,14 +10,12 @@ public class MovementController : MonoBehaviour
     Rigidbody2D rb;
     float gsTemp;
     public GameObject ball;
-    CircleCollider2D ballCollider;
 
     void Start()
     {
         pm = GetComponent<PlayerMovement>();
         pwb = GetComponent<PlayerWithBall>();
         rb = ball.GetComponent<Rigidbody2D>();
-        ballCollider = ball.GetComponent<CircleCollider2D>();
         gsTemp = rb.gravityScale;
     }
 
@@ -32,12 +30,10 @@ public class MovementController : MonoBehaviour
         if (holdingBall)
         {
             rb.gravityScale = 0;
-            ballCollider.enabled = false;
         }
         else
         {
             rb.gravityScale = gsTemp;
-            ballCollider.enabled = true;
         }
     }
 }
