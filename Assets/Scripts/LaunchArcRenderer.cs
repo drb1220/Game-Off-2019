@@ -28,7 +28,7 @@ public class LaunchArcRenderer : MonoBehaviour
 
     void RenderArc()
     {
-        lr.SetVertexCount(resolution + 1);
+        lr.positionCount = resolution + 1;
         lr.SetPositions(CalculateArcArray());
 
     }
@@ -53,6 +53,12 @@ public class LaunchArcRenderer : MonoBehaviour
         float x = t * maxDistance;
         float y = x * Mathf.Tan(radianAngle) - ((g * x * x) / (2 * velocity * velocity * Mathf.Cos(radianAngle) * Mathf.Cos(radianAngle)));
         return new Vector3(x, y);
+    }
+
+    public void UpdateNumbers(float a)
+    {
+        print(a);
+        angle = a;
     }
 
     

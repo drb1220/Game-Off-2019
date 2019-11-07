@@ -8,6 +8,8 @@ public class PlayerWithBall : MonoBehaviour
     public float moveSpeed = 0.5f;
     Rigidbody2D rb;
     float gsTemp;
+    private Vector3 target;
+    public Camera cam;
 
     void Start()
     {
@@ -19,8 +21,6 @@ public class PlayerWithBall : MonoBehaviour
     {
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         transform.position += movement * moveSpeed * Time.deltaTime;
-
-
         ball.transform.position = transform.position;
     }
 }

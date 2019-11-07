@@ -8,11 +8,14 @@ public class MovementController : MonoBehaviour
     PlayerMovement pm;
     PlayerWithBall pwb;
     Rigidbody2D rb;
+    ThrowBall tb;
+    public LineRenderer lineRenderer;
     float gsTemp;
     public GameObject ball;
 
     void Start()
     {
+        tb = GetComponent<ThrowBall>();
         pm = GetComponent<PlayerMovement>();
         pwb = GetComponent<PlayerWithBall>();
         rb = ball.GetComponent<Rigidbody2D>();
@@ -27,6 +30,7 @@ public class MovementController : MonoBehaviour
         }
         pwb.enabled = holdingBall;
         pm.enabled = !holdingBall;
+        lineRenderer.enabled = holdingBall;
         if (holdingBall)
         {
             rb.gravityScale = 0;
@@ -34,6 +38,11 @@ public class MovementController : MonoBehaviour
         else
         {
             rb.gravityScale = gsTemp;
+        }
+
+        if (holdingBall && Input.GetMouseButtonDown(0))
+        {
+            tb.throwB();
         }
     }
 }
