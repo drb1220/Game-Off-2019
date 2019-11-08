@@ -7,6 +7,7 @@ public class ThrowBall : MonoBehaviour
     public float throwSpeed = 10;
     private Vector3 target;
     public Camera cam;
+    public Rigidbody2D ballrb;
     private Vector2 direction;
     private float rotationZ;
     public LaunchArcRenderer launchArcRenderer;
@@ -32,6 +33,7 @@ public class ThrowBall : MonoBehaviour
     public void throwB()
     {
         print(rotationZ);
+        ballrb.velocity = new Vector2(Mathf.Cos(rotationZ*Mathf.Deg2Rad) * throwSpeed, Mathf.Sin(rotationZ*Mathf.Deg2Rad) * throwSpeed);
     }
 
 }

@@ -484,7 +484,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: bafa7f0d2b514df478d401969f7979cf, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -551,6 +551,7 @@ Transform:
   m_Children:
   - {fileID: 212828542}
   - {fileID: 1680980583}
+  - {fileID: 2104320972}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -566,7 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0fe9011ab910495bbfca74992fba115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1321701285}
 --- !u!1 &937831175
 GameObject:
   m_ObjectHideFlags: 3
@@ -673,7 +674,7 @@ GameObject:
   - component: {fileID: 1290672408}
   m_Layer: 10
   m_Name: ChainPoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -724,6 +725,7 @@ GameObject:
   - component: {fileID: 1321701288}
   - component: {fileID: 1321701290}
   - component: {fileID: 1321701289}
+  - component: {fileID: 1321701291}
   m_Layer: 12
   m_Name: Player
   m_TagString: Player
@@ -861,7 +863,7 @@ MonoBehaviour:
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  ball: {fileID: 0}
+  ball: {fileID: 840259323}
 --- !u!114 &1321701288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -891,6 +893,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 840259318}
   moveSpeed: 0.5
+  cam: {fileID: 519420031}
 --- !u!114 &1321701290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -903,7 +906,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77b2f5cd5dfe48438556e702cebe0c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineRenderer: {fileID: 2041659535}
   ball: {fileID: 840259318}
+--- !u!114 &1321701291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321701282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7af6df828db0d24da2a539e9161ac0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwSpeed: 15
+  cam: {fileID: 519420031}
+  ballrb: {fileID: 840259321}
+  launchArcRenderer: {fileID: 2041659534}
 --- !u!1 &1541352658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,7 +1565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea6c94745c274b7091f726a8f11d70b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 10
+  velocity: 15
   angle: 80
   resolution: 10
 --- !u!120 &2041659535
@@ -1644,3 +1664,64 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!1 &2104320971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2104320972}
+  - component: {fileID: 2104320974}
+  - component: {fileID: 2104320973}
+  m_Layer: 13
+  m_Name: Ball Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2104320972
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104320971}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 840259323}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2104320973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104320971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fd6534cf7487473d98dff85b0f5e550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mc: {fileID: 1321701290}
+--- !u!58 &2104320974
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104320971}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0083658425, y: 0}
+  serializedVersion: 2
+  m_Radius: 3.0013063

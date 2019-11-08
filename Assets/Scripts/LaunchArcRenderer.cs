@@ -57,7 +57,6 @@ public class LaunchArcRenderer : MonoBehaviour
 
     public void UpdateNumbers(float a)
     {
-        print(a);
         angle = a;
     }
 

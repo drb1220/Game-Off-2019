@@ -12,6 +12,7 @@ public class MovementController : MonoBehaviour
     public LineRenderer lineRenderer;
     float gsTemp;
     public GameObject ball;
+    bool nearby = false;
 
     void Start()
     {
@@ -24,7 +25,7 @@ public class MovementController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E) && nearby)
         {
             holdingBall = !holdingBall;
         }
@@ -42,7 +43,12 @@ public class MovementController : MonoBehaviour
 
         if (holdingBall && Input.GetMouseButtonDown(0))
         {
+            holdingBall = false;
             tb.throwB();
         }
+    }
+    public void ChangeNearby(bool n)
+    {
+        nearby = n;
     }
 }
